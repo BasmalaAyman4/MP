@@ -1,0 +1,160 @@
+.nav__item,
+.nav__list {
+  list-style: none;
+  text-decoration: none
+}
+
+.nav {
+  background-color: #231f1e
+}
+
+.dropdowncontent,
+.end__carts button:hover {
+  background-color: #fff
+}
+
+.nav__list {
+  display: flex;
+  column-gap: 20px
+}
+
+.logo {
+  margin: 0 20px
+}
+
+.lang__name,
+.nav__link {
+  text-decoration: none;
+  color: #fff !important
+}
+
+.end__carts button:hover a,
+.navlink__category {
+  color: #000 !important
+}
+
+.svg {
+  fill: #fff !important;
+  margin: 0 10px
+}
+
+.cart__number,
+.shop {
+  position: relative;
+  cursor: pointer
+}
+
+.dropdowncontent {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+  width: 550px;
+  padding: 30px 14px 28px 30px;
+  top: 75px !important
+}
+
+.column__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr)
+}
+
+.navlink__category {
+  text-decoration: none !important;
+  margin-bottom: 0
+}
+
+.navlink__category:hover {
+  color: #7a6132 !important
+}
+
+.cart__para {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  display: inline-block;
+  text-align: center;
+  background: #eb5050;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  right: 0;
+  margin: 0
+}
+
+.cartItem__details {
+  display: flex;
+  column-gap: 20px
+}
+
+.cartItem__details div:dir(rtl) {
+  text-align: right
+}
+
+.cartItem__details div:dir(ltr) {
+  text-align: left
+}
+
+.carts__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important
+}
+
+.end__carts {
+  display: flex;
+  flex-direction: column
+}
+
+.end__carts button {
+  margin: 10px;
+  background-color: #222;
+  border: 1px solid #222;
+  padding: 10px
+}
+
+.end__carts button a {
+  color: #fff !important
+}
+
+.noCart__para {
+  color: #eb5050;
+  font-size: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 400px auto
+}
+
+.viewCart__sec {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 30px auto
+}
+
+.number__bodyy {
+  display: flex;
+  border: 1px solid #ddd;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px
+}
+
+.number__bodyy button {
+  background-color: transparent;
+  border: none
+}
+
+.number__bodyy h5 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 22px
+}
+
+.number__bodyy button svg {
+  width: 22px
+}

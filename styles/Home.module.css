@@ -1,0 +1,18 @@
+.banner {
+    width: 100% !important
+}
+
+.feature__sec {
+    margin-top: 70px
+}
+
+.feature__title {
+    text-align: center;
+    font-size: 60px
+}
+
+.cards {
+    margin: 20px 70px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr)
+}
