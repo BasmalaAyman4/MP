@@ -50,6 +50,18 @@ const NavBar = () => {
   const [langu, setLang] = useState([]);
   const [category, setCategory] = useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [serachValue, setserachValue] = useState("");
+  const [isClient, setIsClient] = useState(false);
+  const { data: session, status } = useSession();
+  const [showResponsive, setShowResponsive] = useState(false);
+  const handleCloseResponsive = () => setShowResponsive(false);
+  const handleShowResponsive = () => setShowResponsive(true);
+
+  console.log(session);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 console.log(dir)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -100,6 +112,18 @@ console.log(dir)
         console.log(err);
       });
   }, [code]);
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      router.push(`/Search?search=${serachValue}`);
+      setIsOpen(false);
+    }
+  };
+  const handleSignOut = () => {
+    signOut({ redirect: false }).then(() => {
+      router.push("/");
+    });
+  };
   return (
     <>
     
