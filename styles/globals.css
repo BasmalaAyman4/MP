@@ -56,7 +56,8 @@
    color: #0ff !important
  }
 
- .css-3bmhjh-MuiPaper-root-MuiPopover-paper {
+ .css-3bmhjh-MuiPaper-root-MuiPopover-paper ,
+ .css-1dmzujt   {
    top: 85px !important;
    left: 550px !important
  }
@@ -204,3 +205,98 @@
  .boxshadow {
    box-shadow: rgba(100, 100, 111, .2) 0 7px 29px 0
  }
+ @media (min-width: 992px) {
+  .modal-lg, .modal-xl {
+      --bs-modal-width: 1000px !important;
+  }
+}
+.modal-content{width: 1000px !important;}
+.inputBox_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100% !important;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 15px;
+  border-radius: 8px;
+  background-color: rgba(217, 217, 217, 0.27);
+  overflow: hidden;
+  border: none !important;
+  margin-bottom: 20px;
+  outline: none !important;
+}
+
+.inputBox:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+.inputBox:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.search_icon {
+  height: 1em;
+  padding: 0 0.5em 0 0.8em;
+  fill: #abb2bf;
+}
+
+.inputBox {
+  background-color: transparent;
+  color: #000;
+  outline: none !important;
+  width: 100%;
+  border: none !important;
+  padding: 0.5em 1.5em 0.5em 0;
+  font-size: 1em;
+}
+
+input::placeholder {
+  color: #000 !important;
+}
+@media (min-width:0px) and (max-width:600px) {
+  .navbar-toggler,
+  .navbar-toggler:focus{
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  svg{
+    fill: #333 !important;
+  }
+  .btn-close:focus{
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .offcanvas-header,
+  .modal-header,
+  .header__acc button{
+    justify-content: space-between !important;
+  }
+  .offcanvas-header .btn-close:dir(rtl),
+  .modal-header .btn-close:dir(rtl),
+  .accordion-button::after{
+    margin: 0 !important;
+  }
+ .offcanvas-end{
+    width: 250px !important;
+  }
+  .modal-content{
+    width: 100% !important;
+    margin-bottom: 80px;
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+  }
+  .accordion-button:focus{
+    box-shadow: none !important;
+  }
+  .pagii li button {
+    padding: 10px !important;
+  }
+  .loader span{
+    font-size: 50px;
+  }
+}

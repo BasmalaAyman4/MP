@@ -3,13 +3,21 @@
  .filter__btn {
    position: relative
  }
-
+ .filter__body span:dir(ltr),
+ .view__body h6:dir(ltr){
+  font-size: 20px;
+ }
+ .view__body h6:dir(ltr){
+  font-size: 18px;
+ }
  .category__top {
    text-align: center;
    padding: 44px 0;
    background-color: #f6f6f6
  }
-
+.category__top h2:dir(ltr){
+  font-size: 40px;
+}
  .category__cards,
  .category__center {
    margin-right: auto;
@@ -121,4 +129,58 @@
 
  .filter__body__btn {
    margin-top: 150px
+ }
+ .filter__row:dir(ltr) h5{
+  font-size: 18px;
+ }
+ .filter__responsive{
+  display: none;
+ }
+ .gridOrList{
+  display: flex;
+ }
+ @media (min-width:0px) and (max-width:600px) {
+  .category__cards{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    margin: 10px 50px;
+  }
+  .filter__body{
+    display: none;
+  }
+  .view__body{
+
+    margin: auto;
+  }
+  .filter__responsive{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin:10px auto;
+  }
+  .sub__responsive{
+    display: grid !important;
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+  .advcolor{
+    font-size: 14px;
+  }
+  .filter__body__btn{
+    margin-top: 20px;
+  }
+  .filter__btn{
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .gridOrList{
+    display: none ;
+  }
+  .view__body h6:dir(ltr),
+  .view__body h6:dir(rtl) {
+
+border: none;
+
+  }
+ 
+  
  }

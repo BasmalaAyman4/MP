@@ -3,7 +3,10 @@
   list-style: none;
   text-decoration: none
 }
-
+.nav__link:dir(ltr),
+.lang__name:dir(ltr){
+  font-size: 20px;
+}
 .nav {
   background-color: #231f1e
 }
@@ -65,7 +68,9 @@
 .navlink__category:hover {
   color: #7a6132 !important
 }
-
+.navlink__category:dir(ltr){
+  font-size: 20px;
+}
 .cart__para {
   width: 18px;
   height: 18px;
@@ -157,4 +162,179 @@
 
 .number__bodyy button svg {
   width: 22px
+}
+.search__body{
+position: relative;
+cursor: pointer;
+}
+/* From Uiverse.io by Shaidend */ 
+.InputContainer {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-20px); /* Initial position */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Prevent interaction when closed */
+  z-index: 20000;
+}
+.InputContainer:dir(ltr){
+left: -200px;
+}
+.InputContainer.open {
+  transform: translateY(0); /* Move to original position */
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Enable interaction when open */
+}
+
+.InputContainer.closed {
+  transform: translateY(-20px); /* Hide above */
+  opacity: 0; /* Hidden */
+}
+.input {
+  width: 170px;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  caret-color: rgb(255, 81, 0);
+}
+
+.labelforsearch {
+  cursor: text;
+  padding: 0px 12px;
+}
+
+.searchIcon {
+  width: 13px;
+}
+
+.border {
+  height: 40%;
+  width: 1.3px;
+  background-color: rgb(223, 223, 223);
+}
+
+.micIcon {
+  width: 12px;
+}
+
+.micButton {
+  padding: 0px 15px 0px 12px;
+  border: none;
+  background-color: transparent;
+  height: 40px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.searchIcon path {
+  fill: rgb(114, 114, 114);
+}
+
+.micIcon path {
+  fill: rgb(255, 81, 0);
+}
+
+.micButton:hover {
+  background-color: rgb(255, 230, 230);
+  transition-duration: 0.3s;
+}
+.cartItem__details div:dir(ltr) p{
+  font-size: 17px;
+  padding-bottom:5px;
+}
+.noCart__title{
+  padding-bottom: 18px;
+}
+.end__carts button a:dir(ltr){
+  font-size: 17px;
+}
+.first__row{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-grow: 1;
+}
+.second__row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.logo__title{
+  display: none;
+}
+.footer,
+.lang__respons{
+  display: none;
+}
+@media (min-width:0px) and (max-width:600px) {
+  .lang__name,
+  .nav__link {
+    text-decoration: none;
+    color: #000 !important
+  }
+  .second__row,
+  .first__row{
+display: none;
+  }
+  .logo{
+    display: none;
+  }
+  .logo__title{
+    display: block;
+    color: #fff !important;
+  }
+  .svg{
+    fill: #333 !important;
+  }
+  .footer{
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: #333;
+    font-size: 25px;
+    padding: 10px;
+    z-index: 1000000000;
+    display: block;
+  }
+  .footer__row{
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+  }
+  .footer__row p{
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .column__body__responsive{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .column__body__responsive a{
+    padding: 10px 20px;
+  }
+  .column__body__responsive a:hover{
+    background-color: #000;
+    color: #fff !important;
+  }
+  .lang__respons{
+    display: flex;
+  }
 }

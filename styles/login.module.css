@@ -14,7 +14,9 @@
     justify-content: center;
     margin: auto
 }
-
+.section{
+    margin-bottom: 260px;
+}
 .logo,
 .sec {
     height: fit-content
@@ -189,4 +191,15 @@
     color: #fff;
     text-decoration: none;
     width: 100%
+}
+.section:dir(ltr) .label{
+    font-size: 17px;
+}
+.section:dir(ltr) .input{
+    font-size: 17px;
+}
+@media (min-width:0px) and (max-width:600px) {
+    .section{
+        width: 100%;
+    }
 }
