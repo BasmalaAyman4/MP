@@ -102,8 +102,8 @@ console.log(dir)
   }, [code]);
   return (
     <>
-      {["sm"].map((expand) => (
-        <Navbar
+    
+       {/* <Navbar
           key={expand}
           expand={expand}
           className={`${styles.nav}`}
@@ -268,8 +268,365 @@ console.log(dir)
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
-        </Navbar>
-      ))}
+        </Navbar>*/}
+      <div className={`${styles.lang__respons} `} >
+        {langu.map((lan, index) => (
+          <>
+            {code == "AR" && lan.symble == "AR" ? (
+              <div
+                id={`language${index}`}
+                key={lan.code}
+                onClick={() => handleLanguageChange(`${lan.symble}`)}
+                className={`lan`}
+              >
+                <span>عربي</span>
+              </div>
+            ) : code == "EN" && lan.symble == "EN" ? (
+              <div
+                id={`language${index}`}
+                key={lan.code}
+                onClick={() => handleLanguageChange(`${lan.symble}`)}
+                className={`lan`}
+              >
+                <span>English</span>
+              </div>
+            ) : (
+              <div
+                id={`language${index}`}
+                key={code}
+                onClick={() => handleLanguageChange(`${lan.symble}`)}
+                className={`${code == "AR"
+                    ? zain.className
+                    : PlaywriteDEGrund.className
+                  }`}
+              >
+                <span className={`${styles.lang__name}`}>
+                  {lan.name}
+                </span>
+              </div>
+            )}
+          </>
+        ))}
+      </div>
+      <Navbar className={`${styles.nav}`} dir={dir}>
+
+        <Navbar.Brand
+          href="/"
+          className={` ${PlaywriteDEGrund.className} ${styles.logo__title}`}
+        >
+          Mehrail PM{" "}
+
+        </Navbar.Brand>
+        <Navbar.Offcanvas placement="end">
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title className={` ${PlaywriteDEGrund.className}`}>
+              Mehrail PM
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            {
+              isClient ?
+                <div className={` pe-3 ${zain.className} ${styles.first__row}`}>
+
+                  {langu.map((lan, index) => (
+                    <>
+                      {code == "AR" && lan.symble == "AR" ? (
+                        <div
+                          id={`language${index}`}
+                          key={lan.code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`lan`}
+                        >
+                          <span>عربي</span>
+                        </div>
+                      ) : code == "EN" && lan.symble == "EN" ? (
+                        <div
+                          id={`language${index}`}
+                          key={lan.code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`lan`}
+                        >
+                          <span>English</span>
+                        </div>
+                      ) : (
+                        <div
+                          id={`language${index}`}
+                          key={code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`${code == "AR"
+                              ? zain.className
+                              : PlaywriteDEGrund.className
+                            }`}
+                        >
+                          <span className={`${styles.lang__name}`}>
+                            {lan.name}
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  ))}
+
+                </div>
+                :
+                <div className={` pe-3 ${zain.className} ${styles.first__row}`}>
+
+                  {langu.map((lan, index) => (
+                    <>
+                      {code == "AR" && lan.symble == "AR" ? (
+                        <div
+                          id={`language${index}`}
+                          key={lan.code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`lan`}
+                        >
+                          <span>عربي</span>
+                        </div>
+                      ) : code == "EN" && lan.symble == "EN" ? (
+                        <div
+                          id={`language${index}`}
+                          key={lan.code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`lan`}
+                        >
+                          <span>English</span>
+                        </div>
+                      ) : (
+                        <div
+                          id={`language${index}`}
+                          key={code}
+                          onClick={() => handleLanguageChange(`${lan.symble}`)}
+                          className={`${code == "AR"
+                              ? zain.className
+                              : PlaywriteDEGrund.className
+                            }`}
+                        >
+                          <span className={`${styles.lang__name}`}>
+                            {lan.name}
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  ))}
+
+                </div>
+            }
+
+            <div
+              className={` pe-3 ${styles.second__row} ${code == "AR" ? zain.className : PlaywriteDEGrund.className
+                }`}
+            >
+              {isClient ? (
+                <ul className={`${styles.nav__list}`}>
+                  <li className={`${styles.nav__item}`}>
+                    <Link href="/" className={`${styles.nav__link}`}>
+                      {translations.homee}
+                    </Link>
+                  </li>
+                  <li
+                    className={`${styles.nav__item} ${styles.shop}`}
+                    aria-describedby={id}
+                    onClick={handleClick}
+                  >
+                    <p className={`${styles.nav__link}`}>
+                      {translations.shopee}
+                    </p>
+                    {isDropdownOpen ? (
+                      <Popover
+                        dir={dir}
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "left",
+                        }}
+                      >
+                        <div
+                          className={`${styles.dropdowncontent} ${code == "AR"
+                              ? zain.className
+                              : PlaywriteDEGrund.className
+                            }`}
+                        >
+                          <div className={`${styles.column__body}`}>
+                            {category.map((cat) => (
+                              <Link
+                                href={`/${cat.typeId}?page=1&subCategoryId=`}
+                                key={cat.typeId}
+                                className={`${styles.navlink__category}`}
+                              >
+                                {cat.typeName}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </Popover>
+                    ) : (
+                      ""
+                    )}
+                  </li>
+                </ul>
+              ) : (
+                ""
+              )}
+
+              <Link href="/">
+                <Image
+                  alt=""
+                  src={logo}
+                  quality={100}
+                  width={100}
+                  height={70}
+                  sizes="100vw"
+                  className={styles.logo}
+                />
+              </Link>
+              {isClient ? (
+                <ul className={`${styles.nav__list}`}>
+                  <li className={`${styles.nav__item}`}>
+                    <Link
+                      href="/BestSelling?page=1"
+                      className={`${styles.nav__link}`}
+                    >
+                      {" "}
+                      {translations.bestSell}
+                    </Link>
+                  </li>
+                  <li className={`${styles.nav__item}`}>
+                    <Link
+                      href="/DealOfDay?page=1"
+                      className={`${styles.nav__link}`}
+                    >
+                      {translations.contact}
+                    </Link>
+                  </li>
+                </ul>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className=" d-flex align-items-center justify-content-end flex-grow-1 pl-5">
+              <div className={`${styles.search__body}`}>
+                <Image
+                  alt=""
+                  src={search}
+                  width={30}
+                  height={25}
+                  className={`${styles.svg}`}
+                  onClick={toggleMenu}
+                />
+                {isOpen && (
+                  <div
+                    className={`${styles.InputContainer} ${isOpen ? styles.open : styles.closed
+                      }`}
+                    dir={dir}
+                  >
+                    <input
+                      placeholder={`${translations.search}`}
+                      id="input"
+                      className={styles.input}
+                      name="text"
+                      type="text"
+                      value={serachValue}
+                      onChange={(e) => setserachValue(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                    />
+                    <Link href={`/Search?search=${serachValue}`}>
+                      <label
+                        className={styles.labelforsearch}
+                        htmlFor="input"
+                      >
+                        <svg
+                          className={styles.searchIcon}
+                          viewBox="0 0 512 512"
+                        >
+                          <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                        </svg>
+                      </label>
+                    </Link>
+                  </div>
+                )}
+              </div>
+              {session?.data2?.token ? (
+                <Image
+                  alt=""
+                  src={logoutimg}
+                  width={30}
+                  height={30}
+                  className={`${styles.svg} mt-1`}
+                  onClick={handleSignOut}
+                />
+              ) : (
+                <Link prefetch={false} href={"/Login"}>
+                  <Image
+                    alt=""
+                    src={login}
+                    width={30}
+                    height={25}
+                    className={`${styles.svg}`}
+                  />
+                </Link>
+              )}
+
+              <Cart />
+            </div>
+
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+
+      </Navbar>
+      {isClient ? (
+        <footer className={`${styles.footer} sticky__foot ${code == "AR" ? zain.className : PlaywriteDEGrund.className
+          }`} dir={dir}>
+          <Row className={`${styles.footer__row}`}>
+            <Col>
+              <Link href='/'>
+                <Image alt="" src={homeimg} width={30} height={30} />
+                <p>{translations.homee}</p>
+              </Link>
+            </Col>
+            <Col onClick={() => setShowResponsive(!showResponsive)}>
+              <Image alt="" src={shopimg} width={30} height={30} />
+              <p> {translations.shopee}</p>
+            </Col>
+            <Offcanvas dir={dir} show={showResponsive} onHide={handleCloseResponsive} placement='end' name='end'>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>{translations.shopee}</Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <div className={`${styles.column__body__responsive}`}>
+                  {category.map((cat) => (
+                    <Link
+                      href={`/${cat.typeId}?page=1&subCategoryId=`}
+                      key={cat.typeId}
+                      className={`${styles.navlink__category}`}
+                      onClick={() => setShowResponsive(false)}
+                    >
+                      {cat.typeName}
+                    </Link>
+                  ))}
+                </div>
+              </Offcanvas.Body>
+            </Offcanvas>
+            <Col>
+              <Link href='/BestSelling?page=1'>
+                <Image alt="" src={bestimg} width={30} height={30} />
+                <p>{translations.bestSell}</p>
+              </Link>
+            </Col>
+            <Col>
+              <Link href='/DealOfDay?page=1'>
+                <Image alt="" src={dealimg} width={30} height={30} />
+                <p>{translations.contact}</p>
+              </Link>
+            </Col>
+          </Row>
+        </footer>
+      ) : (
+        ""
+      )}
+      
     </>
   );
 };
