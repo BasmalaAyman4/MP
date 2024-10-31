@@ -42,7 +42,10 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Cart from "./Global/Cart";
-
+import homeimg from "../assets/images/home.png";
+import shopimg from "../assets/images/shop.png";
+import bestimg from "../assets/images/best-seller.png";
+import dealimg from "../assets/images/dealOfDay.png";
 const NavBar = () => {
   const router = useRouter();
   const { switchLanguage } = useContext(LanguageContext);
@@ -62,6 +65,9 @@ const NavBar = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 console.log(dir)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -538,7 +544,7 @@ console.log(dir)
                   width={30}
                   height={25}
                   className={`${styles.svg}`}
-                  
+                  onClick={toggleMenu}
                 />
                 {isOpen && (
                   <div
@@ -606,10 +612,12 @@ console.log(dir)
           <Row className={`${styles.footer__row}`}>
             <Col>
               <Link href='/'>
+                <Image alt="" src={homeimg} width={30} height={30} />
                 <p>{translations.homee}</p>
               </Link>
             </Col>
             <Col onClick={() => setShowResponsive(!showResponsive)}>
+              <Image alt="" src={shopimg} width={30} height={30} />
               <p> {translations.shopee}</p>
             </Col>
             <Offcanvas dir={dir} show={showResponsive} onHide={handleCloseResponsive} placement='end' name='end'>
@@ -633,11 +641,13 @@ console.log(dir)
             </Offcanvas>
             <Col>
               <Link href='/BestSelling?page=1'>
+                <Image alt="" src={bestimg} width={30} height={30} />
                 <p>{translations.bestSell}</p>
               </Link>
             </Col>
             <Col>
               <Link href='/DealOfDay?page=1'>
+                <Image alt="" src={dealimg} width={30} height={30} />
                 <p>{translations.contact}</p>
               </Link>
             </Col>
