@@ -70,7 +70,8 @@
    -o-transform: rotate(180deg) !important
  }
 
- .pagii .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+ .pagii .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
+  .css-21ve8j.Mui-selected {
    color: #fff !important;
    border: 1px solid #222 !important;
    background-color: #222 !important
