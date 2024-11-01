@@ -16,6 +16,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { cartActions } from "@/Component/Redux/slices/cartslice";
 import { Container } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 const zain = localFont({
   src: [
     {
@@ -44,16 +45,22 @@ const ViewCart = () => {
 
       dispatch(cartActions.deleteItem(barCode))
   }
-  const handleIncrement = (rowId) => {
-   
+  const handleIncrement = (rowId,fullqty,qty) => {
+    console.log(qty,fullqty)
+   if(qty >= fullqty){
+    toast.error('لا يوجد كمية للاضافة')
+
+   }else{
     dispatch(cartActions.plusItem(rowId))
+
+   }
   };
   
   const handleDecrement = (rowId) => {
    
     dispatch(cartActions.reduceItem(rowId))
   };
-  
+  console.log(CartProduct)
   return (
     <>
       <section className={`${styles.viewCart__sec}`}>
@@ -62,12 +69,12 @@ const ViewCart = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align='center'>Product</TableCell>
-                <TableCell align='center'> Description</TableCell>
-                <TableCell align='center'> Price</TableCell>
-                <TableCell align='center'> Quantity</TableCell>
-                <TableCell align='center'> Total</TableCell>
-                <TableCell align='center'> Delete</TableCell>
+                <TableCell align='center'>{translations.products}</TableCell>
+                <TableCell align='center'> {translations.Description}</TableCell>
+                <TableCell align='center'> {translations.price}</TableCell>
+                <TableCell align='center'> {translations.qty}</TableCell>
+                <TableCell align='center'> {translations.Total}</TableCell>
+                <TableCell align='center'> {translations.Delete}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -81,8 +88,8 @@ const ViewCart = () => {
                   <TableCell align='center'>
                     <p>{cartItem.itemName}</p>
 
-                    <p> المقاس : {cartItem.size} </p>
-                    <p>اللون : {cartItem.colorName}</p>
+                    <p> {translations.selectSize} : {cartItem.size} </p>
+                    <p>{translations.selectColor} : {cartItem.colorName}</p>
                   </TableCell>
                   <TableCell align='center'>
                     <p>{cartItem.price} EGP</p>
@@ -90,10 +97,13 @@ const ViewCart = () => {
                   <TableCell align='center'>
                 
                   <div className={`${styles.number__bodyy}`}>
-          <button onClick={() => handleIncrement(cartItem.itemCode)}>
+          <button onClick={() => handleIncrement(cartItem.itemCode,cartItem.qty,cartItem.quantity)}>
             <AddIcon />
           </button>
-          <h5>{cartItem.quantity}</h5>
+
+<h5>{cartItem.quantity}</h5>
+
+          
           <button onClick={() => handleDecrement(cartItem.itemCode)}>
             <RemoveIcon />
           </button>
@@ -111,6 +121,7 @@ const ViewCart = () => {
           </Table>
         </TableContainer>
         </Container>
+        <ToastContainer/>
       </section>
     </>
   );
