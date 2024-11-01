@@ -30,6 +30,16 @@ export async function fetchBestSelling(selectedLanguage,page) {
     const data = await response.json()
     return data.data
 }
+export async function fetchDeals(selectedLanguage,page) {
+    const response = await fetch(`${Environment.baseURL}/api/HomeV2/dealsOfDayWithPagination?pageNo=${page}`, {
+        headers: {
+            'langCode': selectedLanguage,
+            webOrMob:2
+        }
+    });
+    const data = await response.json()
+    return data.data
+}
 export async function fetchAllSubCategory(selectedLanguage, mainCategoryCode) {
     const response = await fetch(`${Environment.baseURL}/api/ItemTypes/getAllSubCategory`, {
         headers: {
