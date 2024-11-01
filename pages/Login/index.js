@@ -74,11 +74,6 @@ const index = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   /*  signIn("credentials", {
-      mobile: mobile,
-      redirect: false,
-      callbackUrl: "/",
-    });  */
     setLoginLoading(true)
      axios
     .post(
@@ -87,7 +82,7 @@ const index = () => {
       },
       {
         headers: {
-          langCode:code,
+          langCode: code == 'AR' ? '1' : '2',
           webOrMob:2
 
         },
@@ -169,12 +164,12 @@ const index = () => {
   
   return (
     <>
-      <section className={`${styles.section} ${code=='1'?zain.className:PlaywriteDEGrund.className}`} dir={dir}>
+      <section className={`${styles.section} ${code=='AR'?zain.className:PlaywriteDEGrund.className}`} dir={dir}>
         <Container>
           <Row>
             <Col className={`${styles.login__body}`}>
               <div>
-                <h3 className={`${styles.login__title}`}>تسجيل دخول</h3>
+                <h3 className={`${styles.login__title}`}> {translations.logino}</h3>
                 {sessionLogin ? (
                   <Form onSubmit={handleSubmit}>
                     <Form.Group
@@ -182,7 +177,7 @@ const index = () => {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label className={`${styles.label}`}>
-                        رقم الهاتف
+                        {translations.phone}
                       </Form.Label>
                       <Form.Control
                         type="text"
@@ -195,11 +190,11 @@ const index = () => {
                     {
                       loginLoading?
                       <button className={`${styles.log__btndisable} mt-2`} type="submit" disabled>
-                      تسجيل دخول
+                      {translations.logino}
                     </button>
                       :
 <button className={`${styles.log__btn} mt-2`} type="submit">
-                      تسجيل دخول
+{translations.logino}
                     </button>
                     }
                     
@@ -224,7 +219,7 @@ const index = () => {
                         type="submit"
                         onClick={handlerVerify}
                       >
-                        تابع التقدم
+                        {translations.Followtheprogress}
                       </button>
                     </div>
                   </>
@@ -248,7 +243,7 @@ const index = () => {
                         type="submit"
                         onClick={handlerVerifyComplete}
                       >
-                        تابع التقدم
+                       {translations.Followtheprogress}
                       </button>
                     </div>
                   </>
@@ -263,7 +258,7 @@ const index = () => {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={`${styles.label}`}>
-                          الاسم الاول
+                          {translations.firstName}
                         </Form.Label>
                         <Form.Control
                           type="text"
@@ -279,7 +274,7 @@ const index = () => {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={`${styles.label}`}>
-                          الاسم الاخير
+                          {translations.lastName}
                         </Form.Label>
                         <Form.Control
                           type="text"
@@ -295,7 +290,7 @@ const index = () => {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={`${styles.label}`}>
-                          كلمة المرور
+                          {translations.pass}
                         </Form.Label>
                         <Form.Control
                           type="password"
@@ -311,7 +306,7 @@ const index = () => {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={`${styles.label}`}>
-                          العنوان
+                          {translations.address}
                         </Form.Label>
                         <Form.Control
                           type="text"
@@ -323,7 +318,7 @@ const index = () => {
                         />
                       </Form.Group>
                       <button className={`${styles.log__btn} mt-2`} type="submit">
-                      اضغط لاستكمال بياناتك
+                      {translations.Clicktocompleteyourinformation}
                     </button>
                     </Form>
                   </>
@@ -331,6 +326,7 @@ const index = () => {
                   ""
                 )}
               </div>
+
             </Col>
           </Row>
         </Container>
