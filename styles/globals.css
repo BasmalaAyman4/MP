@@ -63,7 +63,7 @@
  }
 
  .pagii:dir(rtl) .css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon,
- .pagii:dir(rtl) .css-lrb33l {
+  .css-lrb33l:dir(rtl) {
    transform: rotate(180deg) !important;
    -webkit-transform: rotate(180deg) !important;
    -moz-transform: rotate(180deg) !important;
