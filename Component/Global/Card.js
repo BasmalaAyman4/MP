@@ -158,7 +158,6 @@ const Card = ({ prod }) => {
       setIsClient(true);
     }, []);
     const { data: session, status } = useSession();
-  console.log(firstSize)
     const addToCart = (e) => {
       e.preventDefault();
       const barCode=`'${prodDetails.itemCode}-${selectColor.itemColor}-${firstSize.itemSize}'`;
@@ -263,10 +262,10 @@ const Card = ({ prod }) => {
           {
             prod.hasDeal ?
               <>
-                <del className={`${styles.prod__del}`}>EGP {prod.price} </del> <span>{prod.dealPrice} EGP</span>
+                <del className={`${styles.prod__del}`}>EGP {prod.price} </del> <span className={`${styles.price__dealprice}`}>{prod.dealPrice} EGP</span>
               </>
               :
-              <p>{prod.price}</p>
+              <p className={`${styles.price__dealprice}`}>{prod.price}</p>
           }
         </Link>
       </div>
@@ -278,17 +277,17 @@ const Card = ({ prod }) => {
 
         </Modal.Header>
         <Modal.Body>
-          <Row>
-            <Col xl={6}>
+          <Row dir={dir}>
+            <Col xl={4}>
               {selectColor && selectColor.productPic ? (
 
                 <Image src={selectColor?.productPic?.[0]} width={300} height={300} loader={() => selectColor?.productPic?.[0]} priority placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(300, 300))}`} />
 
               ) : (
-                <p className={`${styles.noimg__para}`}>No image or video to show</p>
-              )}
+                <Image alt='' src={noImg} width={300} height={300}/>       
+                       )}
             </Col>
-            <Col dir={dir} xl={6} className={`${code == "1"
+            <Col  xl={8} className={`${code == "AR"
                 ? zain.className
                 : PlaywriteDEGrund.className
               } ${styles.quick__body}`}>
@@ -312,7 +311,6 @@ const Card = ({ prod }) => {
                       cursor: "pointer",
                       width: "30px",
                       height: "30px",
-                      borderRadius: "50%",
                     }}
                     className={
                       selectColor?.itemColor == color.itemColor
@@ -324,7 +322,8 @@ const Card = ({ prod }) => {
                 ))}
               </div>
               <div className={`${styles.size__body}`}>
-                <p>{isClient ? `${translations.SizeAvailable} :` : ""}</p>
+                <p>{isClient ? `${translations.SizeAvailable} ` : ""}</p>
+                
                 {selectColor?.sizes?.map((siz) => (
                   <p
                     key={siz.itemSize}
@@ -338,41 +337,20 @@ const Card = ({ prod }) => {
                     {siz.size}
                   </p>
                 ))}
+               
               </div>
               <div className={`${styles.add__body}`}>
                 <div className={`${styles.watch__btn}`}>
                   {firstSize?.qty >= number ? (
-                    <button
-                      type="button"
-                      className={`${styles.button}`}
-                      onClick={addToCart}
-                    >
-                      <span className={`${styles.button__text}`}>
-                        {isClient ? `${translations.AddToCart}` : ""}
-                      </span>
-                      <span className={`${styles.button__icon}`}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          strokeLinejoin="round"
-                          strokeLinecap="round"
-                          stroke="currentColor"
-                          height="24"
-                          fill="none"
-                          className={`${styles.svg}`}
-                        >
-                          <line y2="19" y1="5" x2="12" x1="12"></line>
-                          <line y2="12" y1="12" x2="19" x1="5"></line>
-                        </svg>
-                      </span>
-                    </button>
+                    
+                                                          <button className={`${styles.filter__btn}`} type="button" onClick={addToCart}> أضف الي السلة </button>
+
                   ) : (
                     <p className={`${styles.not}`}>{isClient ? `${translations.ProductQuantityisnotAvailable}` : ''}</p>
                   )}
 
                 </div>
+                {firstSize?.qty >= number ?
                 <div className={`${styles.number__body}`}>
                   <button onClick={increaseNumber}>
                     <AddIcon />
@@ -382,6 +360,9 @@ const Card = ({ prod }) => {
                     <RemoveIcon />
                   </button>
                 </div>
+                :
+                ''
+}
               </div>
             </Col>
           </Row>

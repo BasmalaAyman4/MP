@@ -80,34 +80,38 @@ const Cart = () => {
           role="presentation"
           onClick={toggleDrawer(false)}
           className={`${
-            code == "1" ? zain.className : PlaywriteDEGrund.className
+            code == "AR" ? zain.className : PlaywriteDEGrund.className
           }`}
           
         >
           {isClient ? 
           <>
-          <h2>عربة المشتريات</h2> 
+          <h2 className={`${styles.noCart__title}`}> {translations.Shoppingcart}</h2> 
          {/* <button onClick={handleClearCart}>
       Clear Cart
     </button> */} 
     {
       CartProduct.length==0?
-      <p className={`${styles.noCart__para}`}>لا يوجد منتجات تمت اضافتها</p>
+      <p className={`${styles.noCart__para}`}> {translations.Therearenoproductsadded}</p>
       :
       <List>
       {
           CartProduct.map(cartItem=>(
+            <>
 <ListItem >
        <div className={`${styles.cartItem__details}`}>
 <Image alt='' src={cartItem.img} width={120} height={120}/>
 <div dir={dir}>
 <p>{cartItem.itemName}</p>
 <p>{cartItem.price} EGP</p>
-<p> المقاس : {cartItem.size} </p>
-<p>اللون : {cartItem.colorName}</p>
+<p> {translations.selectSize} : {cartItem.size} </p>
+<p>{translations.selectColor} : {cartItem.colorName}</p>
 </div>
        </div>
+       
       </ListItem>
+      <hr/>
+      </>
           ))
       }
       
@@ -121,13 +125,13 @@ const Cart = () => {
         {
           isClient && CartProduct.length!=0?
           <div   className={` ${styles.end__carts} ${
-            code == "1" ? zain.className : PlaywriteDEGrund.className
+            code == "AR" ? zain.className : PlaywriteDEGrund.className
           }`}>
-            <button>
-          <Link href='/ViewCart'>أظهر سلة المشتريات</Link>
+            <button onClick={toggleDrawer(false)}>
+          <Link href='/ViewCart'>  {translations.Viewshoppingcart}</Link>
           </button>
-          <button>
-          <Link href='/checkout'>تكملة الدفع</Link>
+          <button onClick={toggleDrawer(false)}>
+          <Link href='/Checkout'> {translations.Supplementpayment}</Link>
           </button>
         </div>
         :

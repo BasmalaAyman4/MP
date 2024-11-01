@@ -304,7 +304,7 @@ className={`${styles.svg}`} onClick={addToFav}/>
                   )}
     </Col>
     <Col dir={dir} xl={6} className={`${
-                              code == "1"
+                              code == "AR"
                                 ? zain.className
                                 : PlaywriteDEGrund.className
                             } ${styles.quick__body}`}>
