@@ -155,7 +155,8 @@
    background: #444
  }
 
- .css-1q6cf6c-MuiSlider-root {
+ .css-1q6cf6c-MuiSlider-root,
+ .css-18h4i23 {
    color: #222 !important;
    height: 400px !important
  }
